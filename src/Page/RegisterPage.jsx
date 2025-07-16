@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
-function RegisterPage() {
+const RegisterPage = () => {
 
     const [userData, setUserData] = useState({ lastName: "", firstName: "", role: "", email: "", password: "" });
     const navigate = useNavigate();
@@ -26,8 +26,13 @@ function RegisterPage() {
             console.error(error);
 
         }
+    }
 
-        return <>
+    return (
+
+        <>
+
+            <h1> register </h1>
 
             <Form onSubmit={handleSubmit}>
 
@@ -59,7 +64,7 @@ function RegisterPage() {
 
                     <Form.Label>Email</Form.Label>
 
-                    <Form.Control type="email" placeholder="Entrer votre email" value={userData.role} onChange={(e) => setUserData({ ...userData, role: e.target.value })} />
+                    <Form.Control type="email" placeholder="Entrer votre email" value={userData.email} onChange={(e) => setUserData({ ...userData, email: e.target.value })} />
 
                 </Form.Group>
 
@@ -86,9 +91,7 @@ function RegisterPage() {
             </Form>
 
         </>
-
-    }
-
+    )
 
 }
 
