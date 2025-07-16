@@ -12,3 +12,22 @@ export const EmployeList = () => API.get('/employ', {
     }
 
 })
+
+export const Delete = (idEmploy) => API.delete(`/deleteEmploy/${idEmploy}`, {
+
+    headers: {
+
+        Authorization: `${localStorage.getItem('token')}`
+
+    }
+
+})
+export const employProfile = () => API.get(`/profile`, {
+
+    headers: {
+
+        Authorization: `${localStorage.getItem('token')}`
+
+    }
+
+})

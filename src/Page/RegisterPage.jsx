@@ -2,6 +2,8 @@ import { useState } from "react";
 import { register } from "../service/userService";
 import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import NavBar from "../components/NavBarComponent";
+
 
 
 
@@ -32,6 +34,8 @@ const RegisterPage = () => {
 
         <>
 
+            <NavBar />
+
             <h1> register </h1>
 
             <Form onSubmit={handleSubmit}>
@@ -56,7 +60,12 @@ const RegisterPage = () => {
 
                     <Form.Label>Role</Form.Label>
 
-                    <Form.Control type="Name" placeholder="Entrer Role" value={userData.role} onChange={(e) => setUserData({ ...userData, role: e.target.value })} />
+                    <Form.Select aria-label="Default select example" value={userData.role} onChange={(e) => setUserData({ ...userData, role: e.target.value })}>
+                        <option>Selection votre Fonction</option>
+                        <option value="Employer">Employer</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Admin">Admin</option>
+                    </Form.Select>
 
                 </Form.Group>
 

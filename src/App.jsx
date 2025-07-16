@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import HomePage from './Page/HomePage';
 import EmployPage from './Page/ListEmployPage';
 import RegisterPage from './Page/RegisterPage';
+import ProfilPage from './Page/ProfilPage';
 
 
 
@@ -16,13 +17,12 @@ function App() {
 
             <BrowserRouter>
 
-                {/* <NavBar /> */}
-
                 <Routes>
 
-                    <Route path='/HomePage' element= {<HomePage/>} />
-                    <Route path='/EmployPage' element = {<EmployPage />} />
-                    <Route path='/RegisterPage' element = {<RegisterPage />} />
+                    <Route path='/HomePage' element={<HomePage />} />
+                    <Route path='/EmployPage' element={<EmployPage />} />
+                    <Route path='/RegisterPage' element={<RegisterPage />} />
+                    <Route path='/ProfilPage' element={<ProfilPage />} />
 
                 </Routes>
 

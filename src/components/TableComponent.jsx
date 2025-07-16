@@ -1,10 +1,20 @@
 import { useEffect, useState } from "react";
-import { EmployeList } from "../service/userService";
-import { Table } from "react-bootstrap";
+import { Delete, EmployeList } from "../service/userService";
+import { Button, Table } from "react-bootstrap";
+import { jwtDecode } from 'jwt-decode';
 
 const TableComponent = () => {
 
     const [employ, setEmploy] = useState([]);
+    const token = localStorage.getItem('token');
+    let userRole = '';
+
+    if (token) {
+
+        userRole = jwtDecode(token).userRole;
+        // console.log(userRole);
+
+    }
 
     const fetchList = async () => {
 
@@ -12,7 +22,8 @@ const TableComponent = () => {
 
             const response = await EmployeList();
             setEmploy(response.data.employ);
-            // console.log(response.data.employ);
+            console.log(response.data);
+            
 
         } catch (error) {
 
@@ -21,6 +32,24 @@ const TableComponent = () => {
         }
 
     };
+
+    // supprimer un employer directement avec un bouton 
+
+    const handleDelete = async (idEmploy) => {
+
+        try {
+
+            await Delete(idEmploy)
+            location.reload()
+
+        } catch (error) {
+
+            console.error( "erreur lors de la suppression", error);
+            // console.log(error);
+
+        }
+
+    }
 
     useEffect(() => {
 
@@ -39,6 +68,7 @@ const TableComponent = () => {
                         <th>id</th>
                         <th>firstName</th>
                         <th>lastName</th>
+                        <th>Fonction</th>
 
                     </tr>
 
@@ -52,8 +82,14 @@ const TableComponent = () => {
                             <td>{emp.idEmploy}</td>
                             <td>{emp.firstName}</td>
                             <td>{emp.lastName}</td>
+                            <td>{emp.role}</td>
+
+                            {userRole == "manager" || userRole == "Admin"}
+
+                            <td><Button variant="danger" type="submit" onClick={ () => handleDelete(emp.idEmploy)}>Supprimer</Button></td>
 
                         </tr>
+
                     ))}
 
                 </tbody>
@@ -63,7 +99,7 @@ const TableComponent = () => {
         </>
 
     );
-    
+
 };
 
 export default TableComponent;
