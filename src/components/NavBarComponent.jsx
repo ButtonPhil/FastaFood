@@ -51,9 +51,9 @@ function NavBar() {
 
                                 <NavLink href="/profilPage">Profile</NavLink>
                                 <NavLink href="/EmployPage">Liste Employer</NavLink>
+                                <NavLink href="/ListProductsPage">Liste Produits</NavLink>
                                 <Button variant='danger' onClick={logout}>Déconnexion</Button>
-                                {/* <p>Bienvenue, {userRole} </p> */}
-
+                                
                             </>
 
                         ) : (

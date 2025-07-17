@@ -5,6 +5,7 @@ import HomePage from './Page/HomePage';
 import EmployPage from './Page/ListEmployPage';
 import RegisterPage from './Page/RegisterPage';
 import ProfilPage from './Page/ProfilPage';
+import ListProductsPage from './Page/ListProductsPage';
 
 
 
@@ -23,6 +24,7 @@ function App() {
                     <Route path='/EmployPage' element={<EmployPage />} />
                     <Route path='/RegisterPage' element={<RegisterPage />} />
                     <Route path='/ProfilPage' element={<ProfilPage />} />
+                    <Route path='/ListProductsPage' element={<ListProductsPage />} />
 
                 </Routes>
 
