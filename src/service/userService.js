@@ -2,7 +2,7 @@ import API from "./api";
 
 
 export const login = (data) => API.post('/login', data);
-export const register = (data) =>API.post('/createEmploy', data)
+export const register = (data) => API.post('/createEmploy', data)
 export const EmployeList = () => API.get('/employ', {
 
     headers: {
@@ -31,3 +31,24 @@ export const employProfile = () => API.get(`/profile`, {
     }
 
 })
+
+export const updateProfile = (email) => API.put(`/profile/update`, email,  {
+
+    headers: {
+
+        Authorization: `${localStorage.getItem('token')}`
+
+    }
+
+})
+
+export const updatePassword = (password) => API.put(`/profile/password`, password, {
+
+   headers: {
+
+        Authorization: `${localStorage.getItem('token')}`
+
+    }
+
+})
+

@@ -14,7 +14,7 @@ const EmployPage = () => {
 
                 <NavBar />
 
-                <h1>list des employéez</h1>
+                <h1>liste des employer</h1>
 
                 <TableComponent />
 

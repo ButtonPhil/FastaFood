@@ -22,7 +22,7 @@ const TableComponent = () => {
 
             const response = await EmployeList();
             setEmploy(response.data.employ);
-            console.log(response.data);
+            // console.log(response.data);
             
 
         } catch (error) {
