@@ -23,7 +23,7 @@ const TableComponent = () => {
             const response = await EmployeList();
             setEmploy(response.data.employ);
             // console.log(response.data);
-            
+
 
         } catch (error) {
 
@@ -44,7 +44,7 @@ const TableComponent = () => {
 
         } catch (error) {
 
-            console.error( "erreur lors de la suppression", error);
+            console.error("erreur lors de la suppression", error);
             // console.log(error);
 
         }
@@ -84,9 +84,24 @@ const TableComponent = () => {
                             <td>{emp.lastName}</td>
                             <td>{emp.role}</td>
 
-                            {userRole == "manager" || userRole == "Admin"}
 
-                            <td><Button variant="danger" type="submit" onClick={ () => handleDelete(emp.idEmploy)}>Supprimer</Button></td>
+                            {(userRole === "manager" || userRole === "admin") ? (
+                                <td>
+
+                                    <Button variant="danger" onClick={() => handleDelete(emp.idEmploy)}>
+
+                                        Supprimer
+
+                                    </Button>
+
+                                </td>
+
+                            ) : (
+
+                                <td></td>
+
+                            )}
+
 
                         </tr>
 
