@@ -24,7 +24,7 @@ const ProductsTableComponent = () => {
 
             const response = await getProducts();
             setProduits(response.data.produits);
-            console.log(response.data.produits);
+            // console.log(response.data.produits);
 
 
         } catch (error) {
@@ -58,7 +58,8 @@ const ProductsTableComponent = () => {
 
         try {
 
-            navigate('/profilProduitPage')
+            navigate(`/profilProduitPage/${idProduct}`)
+             console.log(idProduct);
 
         } catch (error) {
 
@@ -107,8 +108,8 @@ const ProductsTableComponent = () => {
                             <td>{prod.unit}</td>
                             <td>{prod.quantityStock}</td>
                             <td>{prod.minimumThreshold}</td>
-
-
+                            <td>{prod.unitPrice}</td>
+                        
                             {(userRole === "manager" || userRole === "admin") ? (
                                 <td>
 

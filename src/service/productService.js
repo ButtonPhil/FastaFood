@@ -20,3 +20,23 @@ export const DeleteProduct = (idProduct) => API.delete(`/products/delete/${idPro
     }
 
 })
+
+export const getProfilProd = (idProduct) => API.get(`/profilProduct/${idProduct}`, {
+   
+    headers: {
+
+        Authorization: `${localStorage.getItem('token')}`
+
+    }
+
+});
+
+export const updateProducts = (idProduct, data) => API.put(`/products/${idProduct}`, data, {
+   
+    headers: {
+
+        Authorization: `${localStorage.getItem('token')}`
+
+    }
+
+});
