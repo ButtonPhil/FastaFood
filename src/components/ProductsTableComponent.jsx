@@ -59,7 +59,7 @@ const ProductsTableComponent = () => {
         try {
 
             navigate(`/profilProduitPage/${idProduct}`)
-             console.log(idProduct);
+            console.log(idProduct);
 
         } catch (error) {
 
@@ -78,7 +78,18 @@ const ProductsTableComponent = () => {
 
     return (
         <>
+            <div>
+
+                <Button variant="primary" onClick={() => handleModifier(prod.idProduct)}>
+
+                   Ajouter produit
+
+                </Button>
+
+            </div>
+
             <Table striped bordered hover>
+
 
                 <thead>
 
@@ -109,7 +120,7 @@ const ProductsTableComponent = () => {
                             <td>{prod.quantityStock}</td>
                             <td>{prod.minimumThreshold}</td>
                             <td>{prod.unitPrice}</td>
-                        
+
                             {(userRole === "manager" || userRole === "admin") ? (
                                 <td>
 
@@ -119,7 +130,7 @@ const ProductsTableComponent = () => {
 
                                     </Button>
 
-                                    <Button variant="danger" onClick={() => handleModifier(prod.idProduct)}>
+                                    <Button variant="primary" onClick={() => handleModifier(prod.idProduct)}>
 
                                         Modifier
 

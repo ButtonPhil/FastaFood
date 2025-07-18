@@ -61,8 +61,7 @@ const profilProduitPage = () => {
     }, [idProduct]);
 
 
-    const handleSubmit = async (idProduct) => {
-
+    const handleSubmit = async () => {
 
         // Comparer les valeurs actuelles avec les valeurs initiales
         const updatedCategory = category !== initialCategory ? category : initialCategory;
@@ -70,7 +69,8 @@ const profilProduitPage = () => {
         const updatedQuantityStock = quantityStock !== initialQuantityStock ? quantityStock : initialQuantityStock;
         const updatedMinimumThreshold = minimumThreshold !== initialMinimumThreshold ? minimumThreshold : initialMinimumThreshold;
         const updatedUnitPrice = unitPrice !== initialUnitPrice ? unitPrice : initialUnitPrice;
-        
+        const updateData = { updatedCategory, updatedUnit,  updatedQuantityStock, updatedMinimumThreshold, updatedUnitPrice};
+
         // console.log({
         //     category: updatedCategory,
         //     unit: updatedUnit,
@@ -81,8 +81,9 @@ const profilProduitPage = () => {
 
         try {
 
-            await updateProducts({ updatedCategory, updatedUnit,  updatedQuantityStock, updatedMinimumThreshold, updatedUnitPrice})
-            console.log({ updatedCategory, updatedUnit,  updatedQuantityStock, updatedMinimumThreshold, updatedUnitPrice});
+            console.log(idProduct, updateData);
+            await updateProducts(idProduct, updateData)
+            
             
             navigate('/ListProductsPage');
 
